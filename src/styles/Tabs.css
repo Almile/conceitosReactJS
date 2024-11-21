@@ -1,0 +1,90 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    text-align: center;
+    border: none;
+    border-bottom: 1px solid var(--dark-blue);
+}
+
+#tabs menu {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#tabs button {
+    margin: 0 10px;
+    padding: 10px 30px;
+    cursor: pointer;
+    border-radius: 4px;
+    border: 1px solid var(--dark-blue);
+    color: var(--dark-blue);
+    background-color: #fff;
+}
+
+#tabs button.active {
+    background-color: var(--dark-blue);
+    color: white;
+    font-weight: bold;
+}
+
+.layout {
+    display: flex;
+    min-height: 80vh;
+}
+
+.sidebar {
+    width: 20%;
+    padding: 20px;
+    border-right: 1px solid var(--dark-blue);
+}
+
+.sidebar ul li {
+    margin: 20px 0;
+    text-align: left;
+}
+
+.sidebar ul li a {
+    color: var(--jacarta);
+}
+
+
+.sidebar ul li a:hover {
+    padding-bottom: 20px;
+    text-decoration:1px underline var(--wisteria);
+}
+
+.sidebar ul li a:focus {
+    text-decoration:1px underline var(--wisteria);
+}
+
+.content{
+    margin-top: 4%;
+    flex: 1;
+    display: flex;
+    overflow-y: auto;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.contact , .contact ul{
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+.contact textarea, 
+.contact label{
+    width: 100%;
+}
+
+.contact input{
+    margin:0 0 1em;
+}
