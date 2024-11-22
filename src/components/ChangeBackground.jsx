@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
-
+// Componente ChangeBackground: altera a cor de fundo do body da página ao clicar em um botão.
 function ChangeBackground(){
+   // Estado para armazenar a cor de fundo atual e função que altera ela
     const [backgroundChanged, setBackgroundColor] = useState('white')
 
     const getRandomColor = () => {
@@ -23,15 +24,17 @@ function ChangeBackground(){
           '#eee', 
           '#fff',
       ];
+      // Escolhe um índice aleatório na paleta
       const randomIndex = Math.floor(Math.random() * palette.length); 
       return palette[randomIndex];
     }
     
-
+// Função que altera o estado para uma nova cor
     const setBackground = () => {
         setBackgroundColor(getRandomColor())
     }
 
+    //Sempre que o backgroundChanged muda, atualiza a cor de fundo do body
     useEffect(() => {
             document.body.style.backgroundColor = backgroundChanged
     }, [backgroundChanged]) 

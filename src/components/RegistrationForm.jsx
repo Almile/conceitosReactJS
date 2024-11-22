@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import WelcomeMessage from './WelcomeMessage'; // Importando o componente de boas-vindas
 
 function RegistrationForm() {
+   // Estado com os dados do formulário (nome, email e senha)
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     password: '',
   });
   const [submitted, setSubmitted] = useState(false);
-
+ // Função para atualizar o estado do formulário quando um campo é alterado
   const handleChange = (event) => {
     setFormData({
       ...formData,
@@ -16,12 +17,14 @@ function RegistrationForm() {
     });
   };
 
+  // Função chamada ao submeter o formulário
   const handleSubmit = (event) => {
-    event.preventDefault();
+    event.preventDefault(); // Previne o comportamento padrão de recarregar a página
     if (formData.name && formData.email && formData.password) {
+      // Marca o formulário como submetido
       setSubmitted(true);
     } else {
-      alert('Please, fill in all fields.');
+      alert('Por favor preencha todos os campos.');
     }
   };
 
@@ -29,6 +32,7 @@ function RegistrationForm() {
     <div className='content'>
       <ul>
       {submitted ? (
+        // Se o formulário foi enviado corretamente, exibe a mensagem de boas-vindas
         <WelcomeMessage name={formData.name}/>
       ) : (
         <form onSubmit={handleSubmit}>

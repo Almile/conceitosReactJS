@@ -1,3 +1,4 @@
+// Importando componentes
 import Contador from './components/Contador'
 import ChangeBackground from './components/ChangeBackground'
 import ToDoList from './components/ToDoList'
@@ -11,7 +12,7 @@ import Tabs from './components/Tabs'
 import './styles/App.css'
 
 function App() {
-
+// para testar paginas individualmente troque o nome "Tabs" pelo nome que está após a palavra import
   return (
     <>
      <Tabs/>

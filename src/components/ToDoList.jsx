@@ -1,38 +1,46 @@
 import { useState } from "react";
 
 function ToDoList() {
-  const [tasks, setTasks] = useState([])
-  const [newTask, setNewTask] = useState("")
-  const [filter, setFilter] = useState("all")
+  const [tasks, setTasks] = useState([])// Estado para guardar as tarefas
+  const [newTask, setNewTask] = useState("")// Estado para guardar as novas tarefas
+  const [filter, setFilter] = useState("all")// Estado para guardar os filtros
 
+  // função que atualiza valor do input de nova tarefa
   const handleInputChange = (event) => {
     setNewTask(event.target.value)
   }
 
+  // Função para adicionar uma nova tarefa à lista
   const handleAddTask = () => {
-    if (newTask.trim() === "") {
+    if (newTask.trim() === "") {//verifica se o input está em branco
       return
     }
+     // Adiciona a nova tarefa à lista de tarefas com a propriedade completed inicializada como false
     setTasks([...tasks, { text: newTask, completed: false }])
-    setNewTask("")
+    setNewTask("")// Limpa o campo de input após adicionar a tarefa
   }
 
+  // Função para remover uma tarefa da lista pelo index
   const handleRemoveTask = (index) => {
     const updatedTasks = tasks.filter((_, i) => i !== index)
     setTasks(updatedTasks)
   }
 
+  // Função para alternar o status de conclusão de uma tarefa
   const handleMarkComplete = (index) => {
     const updatedTasks = tasks.map((task, i) =>
+    // Mapeia as tarefas, alterando o status da tarefa no índice especificado
       i === index ? { ...task, completed: !task.completed } : task
     )
     setTasks(updatedTasks)
   }
 
+  // Função chamada quando o valor do seletor de filtro muda
   const handleFilterChange = (event) => {
     setFilter(event.target.value)
   }
 
+    // Filtra as tarefas com base no filtro selecionado no select
   const filteredTasks = tasks.filter((task) => {
     switch (filter) {
       case "pending":

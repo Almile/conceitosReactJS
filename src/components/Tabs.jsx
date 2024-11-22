@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react';// Importa React e o hook useState
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-import '../styles/Tabs.css';
+// Importa componentes do react-router-dom para navegação
+import '../styles/Tabs.css'; //Estilo da pagina Tabs
 
-// Importar páginas
+// Importar páginas de projetos
 import Contador from './Contador';
 import ChangeBackground from './ChangeBackground';
 import ToDoList from './ToDoList';
@@ -13,6 +14,7 @@ import Timer from './Timer';
 import PostPage from '../pages/PostPage';
 import Gallery from './Gallery';
 
+// Content barra de links - paginas: sobre, projetos e contato
 const content = [
     {
         label: "Sobre",
@@ -47,11 +49,11 @@ const content = [
 ];
 
 const Tabs = () => {
-    const [activeTab, setActiveTab] = useState(1); // Começa em "Projetos" para ativar o layout correto
-
+    const [activeTab, setActiveTab] = useState(1); 
     return (
         <BrowserRouter>
             <div className="container">
+                {/* Header da página */}
                 <header>
                     <h1>React.js</h1>
                     <p>Usando a biblioteca React para renderizar a UI</p>
@@ -69,6 +71,8 @@ const Tabs = () => {
                         </menu>
                     </div>
                 </header>
+
+                {/* Content sobre */}
                 {activeTab === 0 && (
                         <div> 
                             <h2>Sobre</h2>
@@ -80,9 +84,8 @@ const Tabs = () => {
                             </ul>
                         </div>
                     )}
-                {/* Layout em colunas */}
                 <div className="layout">
-                    {/* Lista no lado esquerdo */}
+                    {/* Lista - no lado esquerdo */}
                     {activeTab === 1 && (
                         <div className="sidebar">
                             <ul>
@@ -96,7 +99,7 @@ const Tabs = () => {
                     )}
                    
 
-                    {/* Conteúdo do projeto no lado direito */}
+                    {/* Conteúdo do projeto - no lado direito */}
                     {activeTab === 1 && (
                         <div className="content">
                             <Routes>
@@ -112,7 +115,7 @@ const Tabs = () => {
                             </Routes>
                         </div>
                     )}
-
+                    {/* Content - contato */}
                     {activeTab === 2 && (
                         <div className="contact"> 
                             <h2>Contato</h2>
